@@ -15,9 +15,10 @@ function moveZeros(arr) {
     }).concat(zeros);
 }
 
-window.document.write("<p>",moveZeros([false,1,0,1,2,0,1,3,"a"]) , "</p>")
+window.document.write("<p>",moveZeros([false,1,0,1,2,0,1,3,"a"]) , "</p>");
 
-// Задача №1
+
+// Задача №2
 // Найдите недостающую букву.
 // Напишите функцию,  которая принимает в качестве параметра массив букв, 
 // расположенных по алфавиту и возвращает массив с недостающей буквой. 
@@ -35,4 +36,41 @@ function findMissingLatters(letters) {
     });
 }
 
-window.document.write("<p>", findMissingLatters(['a','b','c','d','f']), "</p>")
+window.document.write("<p>", findMissingLatters(['a','b','c','d','f']), "</p>");
+
+
+// Задача №3
+// Вы, наверное, знаете систему «лайков» по Facebook и другим страницам. 
+// Люди могут "лайкать" сообщения в блогах,изображения или другие предметы. 
+// Мы хотим создать текст, который должен отображаться рядом с таким элементом.
+// Реализуйте функцию likes :: [String] -> String, которая 
+// должна принимать входной массив, содержащий имена людей,которым нравится элемент. 
+// Он должен возвращать отображаемый текст, как показано в примерах:
+
+function likes(people) {
+    let result;
+    switch (people.length) {
+        case 0: {
+            result = "no one likes this";
+            break;
+        }
+        case 1: {
+            result = `${people[0]} likes this`;
+            break;
+        }
+        case 2: {
+            result = `${people[0]} and ${people[1]} like this`;
+            break;
+        }
+        case 3: {
+            result = `${people[0]}, ${people[1]} and ${people[2]} like this`;
+            break;
+        }
+        default: {
+            result = `${people[0]}, ${people[1]} and ${people.length - 2} others like this`;
+        }
+    }
+    return result;
+}
+
+window.document.write("<p>", likes(['Alex', 'Jacob', 'Mark', 'Max','Mark', 'Max']), "</p>");
