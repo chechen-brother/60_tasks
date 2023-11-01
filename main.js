@@ -15,7 +15,7 @@ function moveZeros(arr) {
     }).concat(zeros);
 }
 
-window.document.write("<p>",moveZeros([false,1,0,1,2,0,1,3,"a"]) , "</p>");
+window.document.write("<p>", moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]), "</p>");
 
 
 // Задача №2
@@ -36,7 +36,7 @@ function findMissingLatters(letters) {
     });
 }
 
-window.document.write("<p>", findMissingLatters(['a','b','c','d','f']), "</p>");
+window.document.write("<p>", findMissingLatters(['a', 'b', 'c', 'd', 'f']), "</p>");
 
 
 // Задача №3
@@ -73,7 +73,7 @@ function likes(people) {
     return result;
 }
 
-window.document.write("<p>", likes(['Alex', 'Jacob', 'Mark', 'Max','Mark', 'Max']), "</p>");
+window.document.write("<p>", likes(['Alex', 'Jacob', 'Mark', 'Max', 'Mark', 'Max']), "</p>");
 
 
 // Задача №4
@@ -88,7 +88,7 @@ window.document.write("<p>", likes(['Alex', 'Jacob', 'Mark', 'Max','Mark', 'Max'
 
 function anagrams(word, words) {
     word = Array.from(word).sort().join('');
-    let res =[];
+    let res = [];
     words.forEach((el) => {
         let str = Array.from(el).sort().join('');
         if (str == word) res.push(el);
@@ -123,3 +123,29 @@ function busStops(arr) {
 }
 
 window.document.write("<p>", busStops([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]), "</p>");
+
+
+// Задача №6
+// Даны две строки, которые содержат только буквы от a - z.
+// Ваша задача написать функцию, которая возвращает
+// новую отсортированную (по порядку) строку,
+// которая содержит буквы двух строк, повторяющихся только один раз.
+// Например:
+// longest("xyaabbbccccdefww", "xxxxyyyyabklmopq") --> "abdefklmopqxy"
+
+function longest(firstWord, secondWord) {
+    function check(word) {
+        let res = [];
+        for (let char of word) {
+            let count = 0;
+            for (let char2 of word) {
+                if (char == char2) count++;
+            }
+            if (count == 1) res.push(char);
+        }
+        return res;
+    }
+    return Array.from(new Set([...check(firstWord), ...check(secondWord)])).sort().join('');
+}
+
+window.document.write("<p>", longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"), "</p>");
