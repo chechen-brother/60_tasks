@@ -74,3 +74,26 @@ function likes(people) {
 }
 
 window.document.write("<p>", likes(['Alex', 'Jacob', 'Mark', 'Max','Mark', 'Max']), "</p>");
+
+
+// Задача №4
+// Что такое анаграмма?
+// Два слова являются анаграммами между собой,если
+// они оба содержат одинаковые буквы. 
+// Например: 'abba' & 'baab' == true
+// Напишите функцию, которая находит все анаграммы слова из списка. 
+// В качестве параметра даны слово и массив слов. 
+// Функция должна возвращать массив всех анаграмм или пустой массив,
+// если анаграмм не обнаружено.
+
+function anagrams(word, words) {
+    word = Array.from(word).sort().join('');
+    let res =[];
+    words.forEach( el => {
+        let str = Array.from(el).sort().join('');
+        if (str == word) res.push(el);
+    });
+    return res;
+}
+
+window.document.write("<p>", anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada', 'abab', 'baab']), "</p>");
