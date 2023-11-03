@@ -149,3 +149,17 @@ function longest(firstWord, secondWord) {
 }
 
 window.document.write("<p>", longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"), "</p>");
+
+
+// Задача №7
+// Ваша задача написать функцию, которая принимает 
+// в качестве параметра целое число и возводит в квадрат каждую цифру числа. 
+// Результат также необходимо вернуть в виде целого числа.
+
+// Например:
+// squareDigits(9119) --> 811181
+
+let squareDigits = (number) => Array.from(number.toString()).map(el => (el**2).toString()).join('');
+
+
+window.document.write("<p>", squareDigits(9119), "</p>");
