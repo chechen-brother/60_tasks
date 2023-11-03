@@ -155,7 +155,6 @@ window.document.write("<p>", longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"), "<
 // Ваша задача написать функцию, которая принимает 
 // в качестве параметра целое число и возводит в квадрат каждую цифру числа. 
 // Результат также необходимо вернуть в виде целого числа.
-
 // Например:
 // squareDigits(9119) --> 811181
 
@@ -163,3 +162,25 @@ let squareDigits = (number) => Array.from(number.toString()).map(el => (el**2).t
 
 
 window.document.write("<p>", squareDigits(9119), "</p>");
+
+
+// Задача №8
+// Для того, чтобы обеспечить безопасность данных при оплате онлайн,
+// нам необходимо замаскировать все цифры банковского счета, кроме последних четырех. 
+// Ваша задача написать функцию, которая принимает в качестве 
+// параметра строку, состоящую из цифр, заменяет все элементы на  '#', 
+// кроме последних четырех и возвращает ее.
+// Например:
+// maskify("4556364607935616") --> "############5616"
+
+function maskify(cardNumber) {
+    if (cardNumber.length != 16) return "Вы ввели некоректный номер карты";
+    return Array(12).fill('#').concat(...cardNumber.substr(12, 4)).join('');
+}
+
+window.document.write('<a id="cardButton" href="#" class="buttons">Нажми для ввода номера карты</a>');
+let cardButton = window.document.getElementById("cardButton");
+cardButton.addEventListener('click', ()=>{
+    let userData = window.prompt("enter the card number"); 
+    window.document.write("</span>", maskify(userData), "</span>");
+});
