@@ -182,5 +182,26 @@ window.document.write('<a id="cardButton" href="#" class="buttons">Нажми д
 let cardButton = window.document.getElementById("cardButton");
 cardButton.addEventListener('click', ()=>{
     let userData = window.prompt("enter the card number"); 
-    window.document.write("</span>", maskify(userData), "</span>");
+    window.document.write("<span>", maskify(userData), "</span>");
 });
+
+
+// Задача №9
+// Дан массив слов, необходимо определить, 
+// составлены ли все слова из одних и тех же символов.
+// Например:
+// ["кот", "ток", "кто"] --> true
+// ["кот", "тк", "кТо"] --> false
+
+function check(wordsArr) {
+    let first = [...wordsArr[0]].sort().join('');
+    let key = true;
+    wordsArr.forEach((el) => {
+        if ([...el].sort().join('') != first) {
+            key = false;
+        }
+    });
+    return key;
+}
+
+window.document.write("<p>", check(["кот", "ток", "кто"]), "</p>");
