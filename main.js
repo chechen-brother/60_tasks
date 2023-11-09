@@ -205,3 +205,21 @@ function check(wordsArr) {
 }
 
 window.document.write("<p>", check(["кот", "ток", "кто"]), "</p>");
+
+// Задача №10
+// Напишите функцию, которая возвращает сумму таким образом:
+// Например:
+// f(1)(2)(3) --> 6
+
+function sum(num1) {
+    let sum1 = num1;
+    return (num2) => {
+        let sum2 = sum1 + num2;
+        return (num3) => {
+            let sum3 = sum2 + num3;
+            return sum3;
+        };
+    };
+}
+
+window.document.write("<p>", sum(1)(2)(3), "</p>");
