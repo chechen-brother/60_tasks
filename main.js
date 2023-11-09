@@ -158,7 +158,7 @@ window.document.write("<p>", longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"), "<
 // Например:
 // squareDigits(9119) --> 811181
 
-let squareDigits = (number) => Array.from(number.toString()).map(el => (el**2).toString()).join('');
+let squareDigits = (number) => Array.from(number.toString()).map(el => (el ** 2).toString()).join('');
 
 
 window.document.write("<p>", squareDigits(9119), "</p>");
@@ -180,8 +180,8 @@ function maskify(cardNumber) {
 
 window.document.write('<a id="cardButton" href="#" class="buttons">Нажми для ввода номера карты</a>');
 let cardButton = window.document.getElementById("cardButton");
-cardButton.addEventListener('click', ()=>{
-    let userData = window.prompt("enter the card number"); 
+cardButton.addEventListener('click', () => {
+    let userData = window.prompt("enter the card number");
     window.document.write("<span>", maskify(userData), "</span>");
 });
 
@@ -223,3 +223,24 @@ function sum(num1) {
 }
 
 window.document.write("<p>", sum(1)(2)(3), "</p>");
+
+// Задача №11
+// Напишите функцию, которая находит наиболее часто используемый элемент массива.
+// Например:
+// const array=[7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 7]; --> "z"
+
+function findMaxCount(arr) {
+    let set = new Set(arr);
+    let maxCount = 0;
+    let res;
+    set.forEach(elSet => {
+        let count = arr.filter(elArr => elSet == elArr).length;
+        if ( count > maxCount) {
+            res = elSet;
+            maxCount = count;
+        }
+    });
+    return res;
+}
+
+window.document.write("<p>", findMaxCount([7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 7]), "</p>");
