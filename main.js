@@ -296,3 +296,24 @@ let removeDuplicates = (arr) => Array.from(new Set(arr));
 let arr = ["php", "php", "css", "css","script", "script", "html", "html", "java"];
 
 window.document.write("<p>", removeDuplicates(arr), "</p>");
+
+
+// Задача №15
+// Напишите функцию colonOdd(num), которая принимает число num в 
+// качестве аргумента и вставляет двоеточие (:) между двумя нечетными числами. 
+// Например, если вводится число 55639217, то на выходе должно быть 5:563:921:7
+
+function colonOdd(num) {
+    let strNum = String(num).split('');
+    let resultStr = '';
+    for (let i = 0; i < strNum.length; i++) {
+        if (strNum[i] % 2 == 1 && strNum[i + 1] % 2 == 1) {
+            resultStr += `${strNum[i]}:`;
+        } else {
+            resultStr += strNum[i];
+        }
+    }
+    return resultStr;
+}
+
+window.document.write("<p>", colonOdd(55639217), "</p>");
