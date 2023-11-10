@@ -235,7 +235,7 @@ function findMaxCount(arr) {
     let res;
     set.forEach(elSet => {
         let count = arr.filter(elArr => elSet == elArr).length;
-        if ( count > maxCount) {
+        if (count > maxCount) {
             res = elSet;
             maxCount = count;
         }
@@ -255,4 +255,29 @@ window.document.write("<p>", findMaxCount([7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 
 
 let expand = (arr) => arr.flat(Infinity);
 
-window.document.write("<p>", expand([1, [2], [3, [[4]]],[5,6]]), "</p>");
+window.document.write("<p>", expand([1, [2], [3, [[4]]], [5, 6]]), "</p>");
+
+
+// Задача №13
+// Напишите функцию с двумя параметрами, которая создаёт массив элементов, 
+// представляющих собой сумму соответствующих элементов заданных массивов.
+// Например:
+// const array1 = [1, 2, 3, 4, 5];
+// const array2 = [4, 5, 6];
+// func(array1,array2) // [5,7,9,4,5]
+
+function concatSplit(arr1, arr2) {
+    let res = [];
+    let length = arr1.length < arr2.length ? arr1.length : arr2.length;
+    let arr = arr1.length > arr2.length ? arr1 : arr2;
+    for (let i = 0; i < length; i++) {
+        res[i] = arr1[i] + arr2[i];
+    }
+    return res.concat(arr.slice(length))
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [4, 5, 6];
+
+
+window.document.write("<p>", concatSplit(array1,array2), "</p>");
