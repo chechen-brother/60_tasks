@@ -244,3 +244,15 @@ function findMaxCount(arr) {
 }
 
 window.document.write("<p>", findMaxCount([7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 7]), "</p>");
+
+
+// Задача №12
+// Напишите функцию `expand(arr)`, которая разворачивает 
+// вложенный массив любой глубины.
+// Например:
+// const arr1 = [1, [2,[3,[4]]]]; --> [1,2,3,4]; 
+// const arr2 = [1, [2], [3, [[4]]],[5,6]]; --> [1,2,3,4,5,6];
+
+let expand = (arr) => arr.flat(Infinity);
+
+window.document.write("<p>", expand([1, [2], [3, [[4]]],[5,6]]), "</p>");
