@@ -279,5 +279,20 @@ function concatSplit(arr1, arr2) {
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [4, 5, 6];
 
-
 window.document.write("<p>", concatSplit(array1,array2), "</p>");
+
+
+// Задача №14
+// Напишите функцию `removeDuplicates(arr)`, которая возвращает массив,
+// в котором удалены повторяющиеся элементы из массива arr.
+// Например:
+// let arr = ["php", "php", "css", "css",
+//   "script", "script", "html", "html", "java"
+// ];
+// removeDuplicates(arr); --> ["php","css","script","html","java"]
+
+let removeDuplicates = (arr) => Array.from(new Set(arr));
+
+let arr = ["php", "php", "css", "css","script", "script", "html", "html", "java"];
+
+window.document.write("<p>", removeDuplicates(arr), "</p>");
